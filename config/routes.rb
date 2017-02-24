@@ -7,4 +7,16 @@ mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get "/jobs/:id/edit", to: 'jobs#edit'
   patch "/jobs/:id", to: 'jobs#update'
   delete "/jobs/:id", to: 'jobs#destroy'
+
+  get "/companies/new", to: 'companies#new'
+  get "/companies/:id", to: 'companies#show'
+  post "/companies", to: 'companies#create'
+
+  get "/users/new", to: 'users#new'
+  post "/users", to: 'users#create'
+
+  get "/login", to: 'sessions#new'
+  post "/login", to: 'sessions#create'
+  get "/logout", to: 'sessions#destroy'
+
 end

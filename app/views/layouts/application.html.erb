@@ -9,6 +9,10 @@
   </head>
 <%= button_to "Home Page", "/jobs", method: :get %>
   <body>
+  <div class="container">
+  <% flash.each do |name, message| %>
+     <div class="alert alert-<%= name %>" role="alert"><%= message %></div>
+  <% end %>
     <%= yield %>
   </body>
 </html>

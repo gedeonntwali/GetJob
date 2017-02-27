@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
-  belongs_to :role
+  has_secure_password
+
+  belongs_to :role, optional: true
   has_many :applications
 
 end

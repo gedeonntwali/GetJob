@@ -14,6 +14,10 @@ mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get "/companies/:id", to: 'companies#show'
   post "/companies", to: 'companies#create'
 
+  get "applications", to: 'applications#index'
+  get "/applications/new", to: 'applications#new'
+  post "/applications", to: 'applications#create'
+
   get "/signup", to: 'users#new'
   post "/users", to: 'users#create'
 

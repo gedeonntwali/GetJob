@@ -1,0 +1,47 @@
+<h2> Fill this form to apply for this job </h2>
+<%= form_tag "/applications", method: :post do %>
+
+  <form > 
+
+    <div class="form-group">
+      First Name <input type="text" class="form-group" name="first_name">
+    </div>
+
+    <div class="form-group">
+      Last Name <input type="text" class="form-group" name="last_name">
+    </div>
+
+    <div class="form-group">
+        <label for="sex">Sex</label>
+        <select class="form-control" id="sex">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <select class="form-control" id="nationality">
+          <option>Rwandan</option>
+          <option>Burundian</option>
+          <option>Tanzanian</option>
+          <option>Kenyan</option>
+          <option>Ugandan</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+    <div class="form-group">
+      Phone Number <input type="text" class="form-group" name="phone_number">
+    </div>
+
+    <div class="form-group">
+      Email <input type="text" class="form-group" name="email">
+    </div>
+
+
+    <div class="checkbox">
+      <input type="submit" class="btn btn-default" name="Create a New Post">
+    </div>
+  </form>
+<% end %>

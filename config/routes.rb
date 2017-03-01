@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+
   get "/jobs", to: 'jobs#index'
   get "/jobs/new", to: 'jobs#new'
   get "/jobs/:id", to: 'jobs#show'
@@ -14,7 +14,7 @@ mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get "/companies/:id", to: 'companies#show'
   post "/companies", to: 'companies#create'
 
-  get "applications", to: 'applications#index'
+  get "/applications", to: 'applications#index'
   get "/applications/new", to: 'applications#new'
   post "/applications", to: 'applications#create'
 

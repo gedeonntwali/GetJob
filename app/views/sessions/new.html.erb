@@ -1,15 +1,22 @@
 <h1>Login</h1>
 
 <%= form_tag "/login", method: :post do %>
-  <div>
-    Email:
-    <input type="email" name="email">
-  </div>
 
-  <div>
-    Password:
-    <input type="password" name="password">
-  </div>
+<form>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
 
-  <input type="submit" value="Log In">
+<div class="container">
+
+  <form class="form-signin">
+    <h1 class="form-signin-heading text-muted">Login</h1>
+    <input type="text" class="form-control" name="email" placeholder="Email address" required="" autofocus="">
+    <input type="password" class="form-control" name="password" placeholder="Password" required="">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Login
+    </button>
+  </form>
+
+</div>
+
+</form>
 <% end %>

@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require_tree .
-//= require bootsy
 //= require jquery_ujs
 //= require turbolinks
-//= require froala_editor.min.js
+//= require_tree .
+
 

@@ -2,19 +2,22 @@
 
 <%= form_tag "/jobs/#{@job.id}", method: :patch do%>
 
-  <form> 
+<form>
 
-    <div>
-      Title: <input type="text" name="title" value="<%=@job.title%>">
-    </div>
-
-    <div>
-      Description: <input type="text" name="description" value="<%=@job.description%>">
-    </div>
+  <div class="form-group">
+    <label for="title">Title of the Job</label>
+    <input type="text" class="form-control" name="title" id="title"  value="<%= @job.title %>">
+  </div>
 
 
-    <div class="checkbox">
-      <input type="submit" class="btn btn-default" value="Edit Job Post">
-    </div>
+  <div class="form-group">
+    <label for="description">Job Description</label>
+    <textarea class="form-control" name="description" id="description" rows="3" value="<%= @job.description%>"></textarea>
+  </div>
+ 
+
+  <div class="checkbox">
+      <input type="submit" class="btn btn-default" name="Create a New Job Post">
+  </div>
   </form>
 <% end %>

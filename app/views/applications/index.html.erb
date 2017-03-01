@@ -1,1 +1,8 @@
-<%= @applications.all %>
+
+<% @applications.each do |application| %>
+
+  <%= application.first_name %>
+  <%= application.last_name %>
+
+  
+<% end %>

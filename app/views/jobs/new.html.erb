@@ -1,23 +1,28 @@
+
+
+
 <h1> New Job Post </h1>
 
 
 <%= form_tag "/jobs", method: :post do %>
 
-  <form > 
+<form>
 
-    <div class="form-group">
-      Title  <input type="text" class="form-group" name="title">
-    </div>
-
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" rows="3"></textarea>
-    </div>
+  <div class="form-group">
+    <label for="title">Title of the Job</label>
+    <input type="text" class="form-control" name="title" id="title"  placeholder="Enter the title">
+  </div>
 
 
-    <div class="checkbox">
-      <input type="submit" class="btn btn-default" name="Create a New Post">
-    </div>
+  <div class="form-group">
+    <label for="description">Job Description</label>
+    <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+  </div>
+ 
+
+  <div class="checkbox">
+      <input type="submit" class="btn btn-default" name="Create a New Job Post">
+  </div>
   </form>
 <% end %>
 

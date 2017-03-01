@@ -1,42 +1,52 @@
 <h2> Create New Account <h2>
 
 <%= form_tag '/users', method: :post do  %>
-  <div>
-    First Name:
-    <input type="text" name="first_name">
+  
+<form>
+
+  <div class="form-group">
+    <label for="first_name">First Name</label>
+    <input type="text" class="form-control" id="first_name" name="first_name"  placeholder="Enter your first name">
   </div>
 
-   <div>
-    Last Name:
-    <input type="text" name="last_name">
+  <div class="form-group">
+    <label for="last_name">Last Name</label>
+    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter your last name">
   </div>
 
-
-  <div>
-    Email:
-    <input type="email" name="email">
+  <div class="form-group">
+    <label for="emai1">Email address</label>
+    <input type="email" class="form-control" id="email1" name="email1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
-  <div>
-    Password:
-    <input type="password" name="password">
+  <div class="form-group">
+    <label for="password">New Password</label>
+    <input type="text" class="form-control" id="password" name="password"  placeholder="Create your new password">
   </div>
 
-  <div>
-    Confirm Password:
-    <input type="password" name="password_confirmation">
+  <div class="form-group">
+    <label for="password_confirmation">Confirm your Password</label>
+    <input type="text" class="form-control" id="password_confirmation" name="password_confirmation"  placeholder="Confirm your password">
   </div>
 
-  <div>
-    User Type:
-    <select name="role_id">
-      <option value="" disabled selected>Select your option</option>
+  <div class="form-group">
+    <label for="role_id">Select your User Type</label>
+    <select class="form-control" id="role_id" name="role_id">
       <% @roles.each do |role| %>
-        <option value="<%= role.id %>" <%= "selected" if @user.role_id == role.id %>><%= role.user_type %></option>
+      <option value="<%= role.id %>" <%= "selected" if @user.role_id == role.id %>><%= role.user_type %></option>
       <% end %>
     </select>
-      
   </div>
 
-  <input type="submit" value="Submit">
+
+  <div class="checkbox">
+      <input type="submit" class="btn btn-default" name="Create a New Job Post">
+  </div>
+</form>
+
+
 <% end %>
+
+
+

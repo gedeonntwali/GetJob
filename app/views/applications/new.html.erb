@@ -1,90 +1,32 @@
+<div class="container">
+  <div class="row">
+   <div class="col-md-6">
+    <h2> Fill this form to apply for this job </h2>
 
-<h2> Fill this form to apply for this job </h2>
+    <%= form_tag "/applications", method: :post do %>
 
-<%= form_tag "/applications", method: :post do %>
+    <form>
+      <div class="form-group">
+        <label class="control-label" for="focusedInput">First Name</label>
+        <input class="form-control" id="focusedInput" type="text" name="first_name">
+      </div>
 
-<div class="form-group">
-  <label class="control-label" for="focusedInput">Focused input</label>
-  <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-</div>
+      <div class="form-group">
+        <label class="control-label" for="focusedInput">Last Name</label>
+        <input class="form-control" id="focusedInput" type="text" name="last_name">
+      </div>
 
- <div class="form-group">
-      <label for="exampleInputFile">Upload Your Resume</label>
-      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
- </div>
-
-<div class="form-group">
-  <label class="control-label" for="disabledInput">Disabled input</label>
-  <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-</div>
-
-<div class="form-group has-warning">
-  <label class="control-label" for="inputWarning">Input warning</label>
-  <input type="text" class="form-control" id="inputWarning">
-</div>
-
-<div class="form-group has-error">
-  <label class="control-label" for="inputError">Input error</label>
-  <input type="text" class="form-control" id="inputError">
-</div>
-
-<div class="form-group has-success">
-  <label class="control-label" for="inputSuccess">Input success</label>
-  <input type="text" class="form-control" id="inputSuccess">
-</div>
-
-<div class="form-group">
-  <label class="control-label" for="inputLarge">Large input</label>
-  <input class="form-control input-lg" type="text" id="inputLarge">
-</div>
-
-<div class="form-group">
-  <label class="control-label" for="inputDefault">Default input</label>
-  <input type="text" class="form-control" id="inputDefault">
-</div>
-
-<div class="form-group">
-  <label class="control-label" for="inputSmall">Small input</label>
-  <input class="form-control input-sm" type="text" id="inputSmall">
-</div>
-
-<div class="form-group">
-  <label class="control-label">Input addons</label>
-  <div class="input-group">
-    <span class="input-group-addon">$</span>
-    <input type="text" class="form-control">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">Button</button>
-    </span>
-  </div>
-</div>
-
-
-  
-
-
-  <form > 
-
-    <div class="form-group">
-      First Name <input type="text" class="form-group" name="first_name">
-    </div>
-
-    <div class="form-group">
-      Last Name <input type="text" class="form-group" name="last_name">
-    </div>
-
-    <div class="form-group">
-        <label for="sex">Sex</label>
-        <select class="form-control" id="sex">
+      <div class="form-group">
+        <label class="control-label" for="focusedInput">Sex</label>
+        <select class="form-control" id="focusedInput" name="sex">
           <option>Male</option>
           <option>Female</option>
         </select>
-    </div>
+      </div>
 
-    <div class="form-group">
-        <label for="nationality">Nationality</label>
-        <select class="form-control" id="nationality" name="nationality">
+      <div class="form-group">
+        <label for="focusedInput" class="control-label">Nationality</label>
+        <select class="form-control" id="focusedInput" name="nationality">
           <option>Rwandan</option>
           <option>Burundian</option>
           <option>Tanzanian</option>
@@ -94,19 +36,81 @@
         </select>
       </div>
 
-    <div class="form-group">
-      Phone Number <input type="text" class="form-group" name="phone_number">
+      <div class="form-group">
+        <label class="control-label" for="focusedInput">Phone Number</label>
+        <input class="form-control" id="focusedInput" type="text" name="phone_number">
+      </div>
+
+      <div class="form-group">
+        <label for="emai1">Email address</label>
+        <input type="email" class="form-control" id="email1" name="email1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+
+       <div class="form-group">
+            <label for="exampleInputFile">Upload Your Resume</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" name="resume" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Upload your resume with format of docx or pdf.</small>
+       </div>
+
+        <div class="form-group">
+            <label for="exampleInputFile">Upload Your Cover Letter</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" name="cover_letter" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Upload your cover letter with docx and pdf format.</small>
+       </div>
+
+       <div class="form-group">
+        <label for="focusedInput" class="control-label">Highest Degree</label>
+        <select class="form-control" id="focusedInput" name="highest_degree">
+          <option>PhD</option>
+          <option>Bachelor degree</option>
+          <option>Diplomat</option>
+          <option>Certificate</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="focusedInput" class="control-label">Experience</label>
+        <select class="form-control" id="focusedInput" name="experience">
+          <option>Over 3 years</option>
+          <option>2 years</option>
+          <option>1 year</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="checkbox">
+        <input type="submit" class="btn btn-default" name="Submit your application">
     </div>
 
-    <div class="form-group">
-      Email <input type="text" class="form-group" name="email">
-    </div>
-
-   
-
-
-    <div class="checkbox">
-      <input type="submit" class="btn btn-default" name="Create a New Post">
-    </div>
-  </form>
+    </form>
 <% end %>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

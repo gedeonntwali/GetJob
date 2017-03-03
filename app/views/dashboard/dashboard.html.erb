@@ -1,6 +1,23 @@
-<div class="jumbotron">
-  <h1>  GetJob Rwanda </h1>
-<p> Do you struggle to get a job or finding the best applicants for your job? GetJob Rwanda is the new web application that help people to post new job, and it helps the applicants to find the job at one place</p>
-  <p><a href="/signup" class="btn btn-primary btn-lg">Create Account</a></p>
+<div class="background" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+  <%= form_tag "/login", method: :post do %>
+
+
+  <form>
+    <h1 class="form-signin-heading text-muted">Login</h1>
+    <input type="text" class="form-control" name="email" placeholder="Email address" required="" autofocus="">
+    <input type="password" class="form-control" name="password" placeholder="Password" required="">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Login
+    </button>
+  </form>
+  <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>
 

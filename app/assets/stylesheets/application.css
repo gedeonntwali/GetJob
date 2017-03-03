@@ -13,4 +13,17 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-image: url('bodybackground.jpg');
+}
 
+.background {
+  min-width: 100%;
+  background-repeat: no-repeat;
+  width: 100vh;
+  height: 95vh;
+  background-size : cover;
+  background-image: url('wallpaper1.png');
+  position: absolute;
+  top: 45px;
+}

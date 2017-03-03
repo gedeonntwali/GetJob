@@ -1,32 +1,39 @@
+<div class="container">
+ <div class="rows">
+   <div class="col-md-6">
+      <h1> Open Company Account </h1>
+      <%= form_tag "/companies", method: :post do %>
 
-<h1> Creata a new account for your company </h1>
+        <form>
+            <div class="form-group">
+              <label class="control-label" for="focusedInput">Company Name</label>
+              <input class="form-control" id="focusedInput" type="text" name="name">
+            </div>
 
-<%= form_tag "/companies", method: :post do %>
+            <div class="form-group">
+              <label class="control-label" for="focusedInput">Company Address</label>
+              <input class="form-control" id="focusedInput" type="text" name="address">
+            </div>
 
-  <form>
+            <div class="form-group">
+              <label for="focusedInput">Email address</label>
+              <input type="email" class="form-control" id="focusedInput" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
 
-    <div class="form-group">
-      Name <input type="text" class="form-control" name="name" placeholder="Your Company's name">
+            <div class="form-group">
+              <label for="focusedInput">Company Description</label>
+              <textarea class="form-control" name="description" id="focusedInput" rows="3"></textarea>
+            </div>
+
+            <div class="checkbox">
+            <input type="submit" class="btn btn-primary active" name="Create Account">
+          </div>
+
+        </form>
+
+      <% end %>
     </div>
-
-    <div class="form-group">
-      Company Address<input type="text" class="form-control" name="address" placeholder="Your Company's address">
-    </div>
-
-    <div class="form-group">
-      Company Email<input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-
-    <div class="form-group">
-      Desctiption <textarea class="form-control" name="description"></textarea>
-    </div>
-
-    <div class="checkbox">
-      <input type="submit" class="btn btn-default" name="Create Account">
-    </div>
-
-  </form>
-
-<% end %>
+  </div>
+</div>
 

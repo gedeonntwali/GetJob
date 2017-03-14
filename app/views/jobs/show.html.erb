@@ -1,6 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
 
-<div class="jumbotron">
-  <h3><%= @job.title %></h3>
-  <p><%= @job.description %></p>
-  <p><a herf="/applications" class="btn btn-primary btn-lg"> Apply Now</a></p>
+   <div class="col-md-2">
+    <nav class="nav-sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="col-md-8">
+      <h3><%= @job.title %></h3>
+      <p><%= @job.description %></p>
+      <h5> Responsibility</h5>
+      <%= raw(@job.job_responsability) %>
+      <h5> Requirements</h5>
+      <%= raw(@job.job_requirement) %>
+      <p>Deadline: <%= @job.deadline %></p>
+      <%= button_to "Apply Now", "/applications/new", method: :get  %>
+  </div>
+  </div>
 </div>
+

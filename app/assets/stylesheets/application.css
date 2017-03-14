@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
-body {
-  background-image: url('bodybackground.jpg');
+
+ 
+
+/*body {
+  background-image: url('wallpaper.png');
+  color: black;
+  font-family: 'Dancing Script', cursive;
+
 }
 
 .background {
@@ -26,4 +32,26 @@ body {
   background-image: url('wallpaper1.png');
   position: absolute;
   top: 45px;
+}*/
+
+#mainNav {
+  height:80px; 
+  position: top;
+}
+.nav-sidebar{
+  float: left;
+}
+
+body {
+  padding-top: 81px;
+}
+.jumbotron{
+background-color:#f2f2f2;
+}
+footer {
+   position:fixed;
+   left:0px;
+   bottom:10px;
+   height:15px;
+   width:100%;
 }

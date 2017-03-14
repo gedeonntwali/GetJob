@@ -1,7 +1,3 @@
-.background {
-  background-image: url('wallpaper.png')
-}
-
 /*!
  * Start Bootstrap - Agency v3.3.7+1 (http://startbootstrap.com/template-overviews/agency)
  * Copyright 2013-2016 Start Bootstrap
@@ -246,14 +242,14 @@ header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;
 }
-.background.intro-text .intro-lead-in {
+header .intro-text .intro-lead-in {
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: 22px;
   line-height: 22px;
   margin-bottom: 25px;
 }
-.background.intro-text .intro-heading {
+header .intro-text .intro-heading {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /*text-transform: uppercase;*/
   /*font-weight: ;*/

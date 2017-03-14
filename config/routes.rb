@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "/jobs", to: 'jobs#index'
+  post "/jobs/search", to: 'jobs#search'
   get "/jobs/new", to: 'jobs#new'
   get "/jobs/:id", to: 'jobs#show'
   post "/jobs", to: 'jobs#create'

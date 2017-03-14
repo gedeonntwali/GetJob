@@ -1,17 +1,58 @@
+<div class="container-fluid">
+  <div class="row">  
+    <div class="col-md-2">
+    </div>
 
-<%= button_to "Add New Job Post", "/jobs/new", method: :get %>
-
-<div class="container">
- <div class="jumbotron">
-  <div class="row">
-    <% @jobs.each do |job| %>
-      <div class="col-sm-8 text-left"> 
-        <h3><%= link_to job.title, "/jobs/#{job.id}" %></h3>
-        <p><%= job.description %></p>
-      </div>
-    <% end %>
+    <div class="col-md-10">
+      <%= form_tag "/jobs/search", method: :post do %>
+        <div class="form">
+          <label for="focusedInput"></label>
+          <input type="text" class="focusedInput" placeholder="Search a job......" name="search_input">
+          <button type="submit" class="btn btn-primary active">Submit</button>
+        </div>
+      <% end %>
+    </div>
   </div>
- </div>
 </div>
+
+<div class="container-fluid">
+<div class="row">
+
+    <div class="col-md-2">
+      <nav class="nav-sidebar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-md-8">
+      <% @jobs.each do |job| %>      
+            <div class="jumbotron">
+              <h4 style="font-family: courier;"><%= link_to job.title, "/jobs/#{job.id}" %></h4>
+              <p style="font-size: 15px;"><%= job.description %></p>
+            </div>
+        <% end %>
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+
 
 

@@ -2,49 +2,63 @@
   <div class="row">
     <div class="col-md-6">
 
-      <h3> New Job Post </h3>
+      <h4> New Job Post </h4>      
 
       <%= form_tag "/jobs", method: :post do %>
 
       <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
-      <form >
+        <form>
 
-      <div class="form-group">
-        <label for="focusedInput">Title of the Job</label>
-        <input type="text" class="form-control" name="title" id="focusedInput"  placeholder="Enter the title">
-      </div>
+          <div class="form-group">
+            <label for="focusedInput">Title of the Job</label>
+            <input type="text" class="form-control" name="title" id="focusedInput"  placeholder="Enter the title">
+          </div>
 
-      <div class="form-group">
-        <label for="focusedInput">Job Description</label>
-        <textarea class="form-control" name="description" id="focusedInput" rows="3"></textarea>
-      </div>
+          <div class="form-group">
+            <label for="focusedInput">Job Category</label>
+              <select name="category_id">
+                <option value="" disabled selected>Select your category</option>
+                  <% @categories.each do |category| %>
+                <option value="<%= category.id %>" <%= "selected" if @job.category_id == category.id %>><%= category.name %></option>
+                  <% end %>
+             </select>
+          </div>
+          
 
-      <label for="focusedInput">Responsibilities</label>
-      <textarea name="job_responsability"></textarea>
-        <script>
-            CKEDITOR.replace( 'job_responsability' );
-        </script>
+          <div class="form-group">
+            <label for="focusedInput">Job Description</label>
+            <textarea class="form-control" name="description" id="focusedInput" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Responsibilities</label>
+            <textarea name="job_responsability"></textarea>
+              <script>
+                  CKEDITOR.replace( 'job_responsability' );
+              </script>
+          </div>
 
-      <label for="focusedInput">Requirements</label>
-      <textarea name="job_requirement"></textarea>
-        <script>
-            CKEDITOR.replace( 'job_requirement' );
-        </script>
+          <div class="form-group">
+            <label>Requirements</label>
+            <textarea name="job_requirement"></textarea>
+              <script>
+                  CKEDITOR.replace( 'job_requirement' );
+              </script>
+          </div>
 
-      <div class="form-group">
-        <label for="example-date-input">Deadline</label>
-        <input type="date" class="form-control" name="deadline" id="example-date-input"  placeholder="Enter the deadline">
-      </div>
-     
-
-      <div class="checkbox">
-          <input type="submit" class="btn btn-primary active" name="Create a New Job Post">
-      </div>
-      </form>
+          <div class="form-group">
+            <label for="example-date-input">Deadline</label>
+            <input type="date" class="form-control" name="deadline" id="example-date-input"  placeholder="Enter the deadline">
+          </div>
+         
+          <div class="checkbox">
+            <input type="submit" class="btn btn-primary active" value="Create Job Post">
+          </div>
+        </form>
 
       <% end %>
     </div>
   </div>
 </div>
+
 

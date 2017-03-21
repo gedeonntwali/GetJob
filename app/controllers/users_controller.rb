@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def new
-    @roles = Role.all
     @user = User.new
     render :new
   end
@@ -12,14 +11,13 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:password_confirmation],
-      role_id: params[:role_id])
+      password_confirmation: params[:password_confirmation])
 
 
     if user.save
       session[:user_id] = user.id
       flash[:success] = "You have created a new account"
-      redirect_to '/login'
+      redirect_to '/jobs'
     else
       flash[:warning] = 'Wrong email or password'
       redirect_to '/signup'

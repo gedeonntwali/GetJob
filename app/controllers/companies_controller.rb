@@ -1,5 +1,9 @@
 class CompaniesController < ApplicationController
-
+  def index
+    @companies = Company.all
+    render "index.html.erb"
+  end
+  
   def new
   end
 

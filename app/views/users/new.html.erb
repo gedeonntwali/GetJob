@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row">
+
+    <div id="jumb" class="col-md-6">
+     <div  class="jumbotron">
+      <p>Welcome to GetJob Rwanda! If you are an employer or company, you need to create an account for your company. You will be able to post the new job post on GetJob Rwanda.</p>
+     </div> 
+    </div>
     <div class="col-md-6">
-      <h2> Create New Account </h2>
+      <h4> Create New Account </h4>
+      
       <%= form_tag '/users', method: :post do  %>
         
         <form>
@@ -32,18 +39,8 @@
             <input type="password" class="form-control" id="focusedInput" name="password_confirmation">
           </div>
 
-          <div class="form-group">
-            <label for="focusedInput">Select your User Type</label>
-            <select class="form-control" id="focusedInput" name="role_id">
-              <% @roles.each do |role| %>
-              <option value="<%= role.id %>" <%= "selected" if @user.role_id == role.id %>><%= role.user_type %></option>
-              <% end %>
-            </select>
-          </div>
-
-
           <div class="checkbox">
-              <input type="submit" class="btn btn-primary active" name="Create a New Job Post">
+              <input type="submit" class="btn btn-primary active" name="Create Account">
           </div>
        </form>
        <% end %>

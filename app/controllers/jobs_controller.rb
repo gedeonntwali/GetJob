@@ -2,6 +2,7 @@ class JobsController < ApplicationController
 
   def index
    @jobs = Job.all
+   @categories = Category.all
    render "index.html.erb"
   end
 
@@ -10,12 +11,20 @@ class JobsController < ApplicationController
   end
 
   def new
+    @job = Job.new
+    @categories = Category.all
+    @companies = Company.all
   end
 
   def create
-    @job = Job.new({title: params[:title], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], deadline: params[:deadline]})
-    @job.save
-    redirect_to "/jobs/#{@job.id}"
+    @job = Job.new({title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], deadline: params[:deadline]})
+    if @job.save
+      flash[:success] = "Job Post Created"
+      redirect_to "/jobs/#{@job.id}"
+    else
+      flash[:warning] = "Job Post NOT Created"
+      render :new
+    end
   end
 
   def edit
@@ -29,6 +38,7 @@ class JobsController < ApplicationController
     job_responsability = params[:job_responsability]
     job_requirement = params[:job_requirement]
     deadline = params[:deadline]
+    category_id = params[:category_id]
     job.save
     flash[:success] = "Job Updated"
     redirect_to "/jobs/#{job.id}"
@@ -37,6 +47,7 @@ class JobsController < ApplicationController
   def destroy
     job = Job.find_by(id: params[:id])
     job.destroy
+    flash[:warning] = "Post Updated"
     redirect_to "/jobs"
   end
 
@@ -44,7 +55,7 @@ class JobsController < ApplicationController
     search_query = params[:search_input]
     @jobs = Job.where("title LIKE ? OR description LIKE ?", "%#{search_query}%", "%#{search_query}%")
     if @jobs.empty?
-      flash[:info] = "No job found in search"
+    flash[:warning] = "No job found in search"
     end
     render :index
   end

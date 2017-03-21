@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete "/jobs/:id", to: 'jobs#destroy'
 
   get "/", to: 'dashboard#dashboard'
+  get "/help", to: 'dashboard#help'
 
   get "/companies", to: 'companies#index'
   get "/companies/new", to: 'companies#new'

@@ -4,9 +4,15 @@
    <div class="col-md-2">
     <nav class="nav-sidebar">
       <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Categories</a>
-        </li>
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h7>Categories</h7><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+                <% Category.all.each do |category| %>
+                  <li><a href="/jobs/?category=<%= category.name %>"><%= category.name.capitalize %></a></li>
+                <% end %>
+              </ul>
+          </div>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
@@ -22,12 +28,13 @@
 
   <div class="col-md-8">
       <h3><%= @job.title %></h3>
+      <p><strong>Category: </strong><%= @job.category.name %></p>
       <p><%= @job.description %></p>
       <h5> Responsibility</h5>
       <%= raw(@job.job_responsability) %>
       <h5> Requirements</h5>
       <%= raw(@job.job_requirement) %>
-      <p>Deadline: <%= @job.deadline %></p>
+      <p><strong>Deadline</strong>: <%= @job.deadline %></p>
       <%= button_to "Apply Now", "/applications/new", method: :get  %>
   </div>
   </div>

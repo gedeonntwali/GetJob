@@ -4,7 +4,8 @@ class Job < ApplicationRecord
 
   has_many :applications
 
+  belongs_to :category, optional: true
 
-  has_many :job_categories
-  has_many :categories, through: :job_categories
+
+  
 end

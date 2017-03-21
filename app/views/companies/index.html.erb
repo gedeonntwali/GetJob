@@ -1,5 +1,24 @@
-<%= button_to "Add New Job Post", "/jobs/new", method: :get %>
-<body>
-<h1> To post your job, you need to have a company you work for</h1>
-</body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= button_to "Add New Company", "/companies/new", method: :get %>
+    </div>
+    <div class="col-md-12">
+      <% @companies.each_slice(3) do |three_companies| %>
+        <div class="row">
+          <% three_companies.each do |company| %>
+            <div class="col-md-4">
+              <div class="jumbotron">
+              <h4><%= link_to company.name, "/companies/#{company.id}" %></h4>
+              <p><strong>Address</strong>: <%= company.address %></p>
+              <p><strong>Description</strong>: <%= company.description %></p>
+              </div>
+            </div>
+          <% end %>
+         </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 

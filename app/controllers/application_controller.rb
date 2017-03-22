@@ -11,5 +11,12 @@ class ApplicationController < ActionController::Base
     redirect_to "/products" unless current_user
   end
 
+  def authenticate_admin!
+    unless current_user && current_user.admin
+      flash.now[:danger] = "Access Denied"
+      redirect_to "/products"
+    end
+  end
+
 
 end

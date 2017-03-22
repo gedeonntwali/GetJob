@@ -1,8 +1,11 @@
-
+<h4> All Applications </h4>
 <% @applications.each do |application| %>
 
-  <%= application.first_name %>
-  <%= application.last_name %>
+  <ul>
+    <li><%= application.first_name %></li>
+    <li><%= application.last_name %></li>
+    <li><%= application.resume %></li>
+  </ul>
 
   
 <% end %>

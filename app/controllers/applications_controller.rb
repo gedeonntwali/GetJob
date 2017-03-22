@@ -16,6 +16,7 @@ class ApplicationsController < ApplicationController
       phone_number: params[:phone_number],
       email: params[:email],
       resume: params[:resume],
+      addition_docs: params[:addition_docs],
       cover_letter: params[:cover_letter],
       highest_degree: params[:highest_degree],
       experience: params[:experience],

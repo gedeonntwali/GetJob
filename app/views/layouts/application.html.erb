@@ -38,6 +38,9 @@
 
   </head>
   <body id="page-top" class="index">
+    <% flash.each do |name, message| %>
+       <div class="alert alert-<%= name %>" role="alert"><%= message %></div>
+    <% end %>
 
     <script src="vendor/jquery/jquery.min.js"></script>
 

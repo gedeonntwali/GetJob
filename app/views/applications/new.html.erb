@@ -5,6 +5,7 @@
     <h4> Fill this form to apply for this job </h4>
 
     <%= form_tag "/applications", method: :post do %>
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
     <form>
       <div class="form-group">
@@ -55,11 +56,20 @@
             <small id="fileHelp" class="form-text text-muted">Upload your resume with format of docx or pdf.</small>
        </div>
 
-        <div class="form-group">
-            <label for="exampleInputFile">Upload Your Cover Letter</label>
-            <input type="file" class="form-control-file" id="exampleInputFile" name="cover_letter" aria-describedby="fileHelp">
-            <small id="fileHelp" class="form-text text-muted">Upload your cover letter with docx and pdf format.</small>
+       <div class="form-group">
+            <label for="exampleInputFile">Upload Additional Files/Documents</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" name="addition_docs" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Upload your files with format of docx or pdf.</small>
        </div>
+
+        <div class="form-group">
+            <label>Cover Letter</label>
+            <p>You can write in that box or copy from a word document</p>
+            <textarea name="cover_letter"></textarea>
+              <script>
+                  CKEDITOR.replace( 'cover_letter' );
+              </script>
+          </div>
 
        <div class="form-group">
         <label for="focusedInput" class="control-label">Highest Degree</label>

@@ -3,6 +3,7 @@ class JobsController < ApplicationController
   def index
    @jobs = Job.all
    @categories = Category.all
+   @companies = Company.all
    render "index.html.erb"
   end
 
@@ -17,7 +18,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new({title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], deadline: params[:deadline]})
+    @job = Job.new({title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline]})
     if @job.save
       flash[:success] = "Job Post Created"
       redirect_to "/jobs/#{@job.id}"
@@ -37,6 +38,7 @@ class JobsController < ApplicationController
     job.description = params[:description]
     job_responsability = params[:job_responsability]
     job_requirement = params[:job_requirement]
+    apply_info = params[:apply_info]
     deadline = params[:deadline]
     category_id = params[:category_id]
     job.save

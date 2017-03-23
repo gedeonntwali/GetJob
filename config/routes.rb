@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get "/companies/new", to: 'companies#new'
   get "/companies/:id", to: 'companies#show'
   post "/companies", to: 'companies#create'
+  get "/companies/:id/edit", to: 'companies#edit'
+  patch "/companies/:id", to: 'companies#update'
+  delete "/companies/:id", to: 'companies#destroy'
 
   get "/applications", to: 'applications#index'
   get "/applications/new", to: 'applications#new'

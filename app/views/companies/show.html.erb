@@ -1,17 +1,21 @@
 <%= button_to "Add New Job Post", "/jobs/new", method: :get %>
-<h2> Your Company Profile </h2>
-<table class="table table-bordered">
-  <tr>
-    <th>  Name  </th>
-    <th>  Address  </th>
-    <th>  Email  </th>
-    <th>  Description </th>
-  </tr>
-  <tr>
-    <td><%= @company.name %></td>
-    <td><%= @company.address %></td>
-    <td><%= @company.email %></td>
-    <td><%= @company.description %></td>    
-  </tr>
 
-</table>
+<div class="container-fluid">
+<div class="row">
+
+  <div class="col-md-2">
+  </div>
+
+  <div class="col-md-8">
+    <h5><%= @company.name %> Company Profile </h5>
+    <p><strong>Address: </strong><%= @company.address %></p>
+    <p><strong>Description: </strong><%= @company.description %></p>
+    <p><strong>Email: </strong><%= @company.email %></p>
+    <p><strong>Website</strong><%= raw(@company.website)%></p> 
+
+    <h5><%= @company.name %> Job Posts</h5>
+
+  </div>
+</div>
+<%= button_to "Delete", "/companies/#{@company.id}", method: :delete %>
+</div>

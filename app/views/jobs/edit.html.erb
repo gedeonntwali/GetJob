@@ -1,36 +1,58 @@
-<h1> Edit Job Post </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <h4> Edit Job Post </h4>
 
-<%= form_tag "/jobs/#{@job.id}", method: :patch do%>
+        <%= form_tag "/jobs/#{@job.id}", method: :patch do%>
 
-<form>
+        <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
-  <div class="form-group">
-    <label for="focusedInput">Title of the Job</label>
-    <input type="text" class="form-control" name="title" id="focusedInput"  value="<%= @job.title %>">
+           <form>
+
+              <div class="form-group">
+                <label for="focusedInput">Title of the Job</label>
+                <input type="text" class="form-control" name="title" id="focusedInput"  value="<%= @job.title %>">
+              </div>
+              
+
+              <div class="form-group">
+                <label for="focusedInput">Job Description</label>
+                <textarea class="form-control" name="description" id="focusedInput" rows="3" value="<%= @job.description %>"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Responsibilities</label>
+                <textarea name="job_responsability" value="<%= @job.job_responsability %>"></textarea>
+                  <script>
+                      CKEDITOR.replace( 'job_responsability' );
+                  </script>
+              </div>
+
+              <div class="form-group">
+                <label>Requirements</label>
+                <textarea name="job_requirement" value="<%= @job.job_requirement %>"></textarea>
+                  <script>
+                      CKEDITOR.replace( 'job_requirement' );
+                  </script>
+              </div>
+
+              <div class="form-group">
+                <label>How To Apply</label>
+                <textarea name="apply_info" value="<%= @job.apply_info %>"></textarea>
+                  <script>
+                      CKEDITOR.replace( 'apply_info' );
+                  </script>
+              </div>
+
+              <div class="form-group">
+                <label for="example-date-input">Deadline</label>
+                <input type="date" class="form-control" name="deadline" id="example-date-input"  value="<%= @job.deadline%>">
+              </div>
+
+              <div class="checkbox">
+                  <input type="submit" class="btn btn-primary active" name="Edit Job Post">
+              </div>
+             </form>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="focusedInput">Job Description</label>
-    <textarea class="form-control" name="description" id="focusedInput" rows="3" value="<%= @job.description%>"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="focusedInput">Job Responsibility</label>
-    <textarea class="form-control" name="job_responsability" id="focusedInput" rows="3" value="<%= @job.job_responsability%>"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="focusedInput">Job Requirement</label>
-    <textarea class="form-control" name="job_requirement" id="focusedInput" rows="3" value="<%= @job.job_requirement%>"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="example-date-input">Deadline</label>
-    <input type="date" class="form-control" name="deadline" id="example-date-input" value="<%= @job.deadline%>">
-  </div>
-
-  <div class="checkbox">
-      <input type="submit" class="btn btn-primary active" name="Create a New Job Post">
-  </div>
-  </form>
-<% end %>

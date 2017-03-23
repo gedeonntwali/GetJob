@@ -11,7 +11,7 @@
           <a class="nav-link" href="#"><strong>Notifications</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link disabled" href="#"><strong>Updates</strong></a>
         </li>
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Categories</strong><span class="caret"></span></a>
@@ -28,7 +28,8 @@
   </div>
 
   <div class="col-md-8">
-      <h3><%= @job.title %></h3>
+  <%= button_to "Delete", "/jobs/#{@job.id}", method: :delete %>
+      <h4><%= @job.title %></h4>
       <p><strong>Category: </strong><%= @job.category.name %></p>
       <p><%= @job.description %></p>
       <h5> Responsibility</h5>

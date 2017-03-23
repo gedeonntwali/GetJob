@@ -37,6 +37,7 @@
 #mainNav {
   height:80px; 
   position: top;
+  background-color: #003366;
 }
 .nav-sidebar{
   float: left;
@@ -44,11 +45,11 @@
 
 body {
   padding-top: 81px;
-  background-color: #ffffff;
+  background-color: #f2f2f2;
   color:black;
 }
 .jumbotron{
-background-color:#f2f2f2;
+background-color:#ffffff;
 font-size: 15px;
 }
 
@@ -65,8 +66,10 @@ font-size: 15px;
   font-family: courier;
   color:blue;
 }
-.dropdown{
-  color: black;
+.dropdown-menu{
+  background-color: #003366;
+  color: white;
+
 }
 
 
@@ -101,13 +104,13 @@ a.active {
   outline: none;
 }
 a {
-  color: black;
+  color: #003366;
 }
 a:hover,
 a:focus,
 a:active,
 a.active {
-  color: black;
+  color: #003366;
 }
 h1,
 h2,
@@ -123,7 +126,7 @@ h6 {
   margin: 0 auto;
 }
 .bg-light-gray {
-  background-color: #eeeeee;
+  background-color: #003366;
 }
 .bg-darkest-gray {
   background-color: #222222;
@@ -220,7 +223,7 @@ fieldset[disabled] .btn-xl.active {
   background-color: white;
 }
 .navbar-custom {
-  background-color: #222222;
+  background-color: #003366;
   border-color: transparent;
 }
 .navbar-custom .navbar-brand {
@@ -231,14 +234,14 @@ fieldset[disabled] .btn-xl.active {
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand.active {
-  color: #fec503;
+  color: #003366;
 }
 .navbar-custom .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
 }
 .navbar-custom .navbar-toggle {
-  background-color: #fed136;
-  border-color: #fed136;
+  background-color: #003366;
+  border-color: #003366;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: white;
@@ -263,12 +266,12 @@ fieldset[disabled] .btn-xl.active {
 .navbar-custom .navbar-nav > .active > a {
   border-radius: 0;
   color: white;
-  background-color: #fed136;
+  background-color: #003366;
 }
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
   color: white;
-  background-color: #fec503;
+  background-color: #003366;
 }
 @media (min-width: 768px) {
   .navbar-custom {

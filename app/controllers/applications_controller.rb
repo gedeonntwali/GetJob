@@ -24,7 +24,10 @@ class ApplicationsController < ApplicationController
 
     })
 
-    @application.save
+    @application.save!
+    @application.resume.url
+    # @application.current_path
+    @application_identifier
     redirect_to "/applications"
 
 

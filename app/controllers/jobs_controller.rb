@@ -35,11 +35,11 @@ class JobsController < ApplicationController
   def update
     job = Job.find_by(id: params[:id])
     job.title = params[:title]
-    job.description = params[:description]
+    description = params[:description]
     job_responsability = params[:job_responsability]
     job_requirement = params[:job_requirement]
     apply_info = params[:apply_info]
-    deadline = params[:deadline]
+    job.deadline = params[:deadline]
     category_id = params[:category_id]
     job.save
     flash[:success] = "Job Updated"
@@ -49,7 +49,7 @@ class JobsController < ApplicationController
   def destroy
     job = Job.find_by(id: params[:id])
     job.destroy
-    flash[:warning] = "Post Updated"
+    flash[:warning] = "Post Deleted"
     redirect_to "/jobs"
   end
 

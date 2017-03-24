@@ -1,11 +1,23 @@
-<h4> All Applications </h4>
-<% @applications.each do |application| %>
 
-  <ul>
-    <li><%= application.first_name %></li>
-    <li><%= application.last_name %></li>
-    <li><%= link_to "Resume", application.resume_url %></li>
-  </ul>
 
-  
-<% end %>
+<div class="container-fluid" id="beside_nav">
+<div class="row">
+
+  <div class="col-md-2"> 
+  </div>
+
+  <div class="col-md-8">
+  <% if current_user %>
+  <%= button_to "Delete", "/jobs/#{@job.id}", method: :delete %>
+  <% end %>
+  <h4> All Applications </h4>
+  <% @applications.each do |application| %>
+    <p><strong>First Name</strong><%= application.first_name %></p>
+    <p><strong>First Name</strong><%= application.last_name %></p>
+    <p><%= link_to "Download Resume", application.resume_url %></p>
+  <%end%>
+
+      
+  </div>
+  </div>
+</div>

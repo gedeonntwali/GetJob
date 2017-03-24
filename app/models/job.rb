@@ -1,8 +1,10 @@
 class Job < ApplicationRecord
 
-  belongs_to :company, optional: true
 
   has_many :applications
+
+  belongs_to :user
+  belongs_to :company
 
   belongs_to :category, optional: true
 

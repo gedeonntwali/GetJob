@@ -9,7 +9,8 @@
       <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
         <form>
-
+          <input type="hidden" name="user_id" class="form_control" value="<%= current_user.id %>">
+          
           <div class="form-group">
             <label for="focusedInput">Title of the Job</label>
             <input type="text" class="form-control" name="title" id="focusedInput"  placeholder="Enter the title">

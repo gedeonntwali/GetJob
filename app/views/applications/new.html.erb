@@ -4,7 +4,8 @@
    
     <h4> Fill this form to apply for this job </h4>
 
-    <%= form_tag "/applications", method: :post do %>
+    <%= form_tag "/applications", :multipart => true, method: :post do %>
+
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
     <form>
@@ -51,9 +52,8 @@
 
 
        <div class="form-group">
-            <label for="exampleInputFile">Upload Your Resume</label>
-            <input type="file" class="form-control-file" id="exampleInputFile" name="resume" aria-describedby="fileHelp" accept="pdf/*">
-            <small id="fileHelp" class="form-text text-muted">Upload your resume with format of docx or pdf.</small>
+            <%= label_tag :resume %>
+            <%= file_field_tag :resume %>
        </div>
 
        <div class="form-group">

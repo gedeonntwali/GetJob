@@ -22,6 +22,7 @@
     <div class="col-md-2">
     <nav class="nav-sidebar">
       <ul class="nav flex-column">
+      <% if current_user %>
         <li class="nav-item">
           <a class="nav-link" href=""><strong>Profile</strong></a>
         </li>
@@ -40,10 +41,11 @@
                 <% end %>
               </ul>
           </div>
-        
+        <% end %>
       </ul>
     </nav>
   </div>
+
 
     <div class="col-md-8">
       <% @jobs.each do |job| %>      

@@ -28,7 +28,9 @@
   </div>
 
   <div class="col-md-8">
+  <% if current_user %>
   <%= button_to "Delete", "/jobs/#{@job.id}", method: :delete %>
+  <% end %>
       <h4><%= @job.title %></h4>
       <p><strong>Category: </strong><%= @job.category.name %></p>
       <p><%= @job.description %></p>

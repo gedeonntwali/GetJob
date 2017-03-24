@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+
+# before_action :authenticate_user!, except: [:index, :show, :search]
+
   def index
     @companies = Company.all
     render "index.html.erb"
@@ -12,7 +15,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new({name: params[:name], address: params[:address], email: params[:email], description: params[:description], website: params[:website]})
+    @company = Company.new({name: params[:name], address: params[:address], email: params[:email], description: params[:description], website: params[:website], user_id: params[:user_id]})
     @company.save
     redirect_to "/companies/#{@company.id}"
   end

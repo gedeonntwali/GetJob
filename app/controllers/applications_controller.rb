@@ -24,12 +24,14 @@ class ApplicationsController < ApplicationController
 
     })
 
-    @application.save!
-    @application.resume.url
-    # @application.current_path
-    @application_identifier
+    @application.save
     redirect_to "/applications"
 
-
   end
+
+  def download
+    send_file '@application.resume.url', :type=>"application/pdf", :x_sendfile=>true
+  end
+
+
 end

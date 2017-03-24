@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+    <% if current_user %>
       <%= button_to "Add New Company", "/companies/new", method: :get %>
+    <% end %>
     </div>
     <div class="col-md-12">
       <% @companies.each_slice(3) do |three_companies| %>

@@ -2,10 +2,13 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.all
+    @jobs = Job.all
   end
 
   def new
+    @application = Application.new
     @jobs = Job.all
+    @job = Job.find_by(id: params[:job_id])
   end
 
   def create
@@ -25,7 +28,9 @@ class ApplicationsController < ApplicationController
 
     })
 
-    @application.save
+    if @application.save
+      ApplyMailer.applicant_confirmation(@application).deliver_now
+    end
     redirect_to "/applications"
 
   end

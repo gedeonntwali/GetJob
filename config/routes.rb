@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "/applications/new", to: 'applications#new'
   post "/applications", to: 'applications#create'
 
+  get "/users", to: 'users#index'
   get "/signup", to: 'users#new'
   post "/users", to: 'users#create'
   get "/users/:id", to: 'users#show'

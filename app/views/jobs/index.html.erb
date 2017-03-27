@@ -24,13 +24,13 @@
       <ul class="nav flex-column">
       <% if current_user %>
         <li class="nav-item">
-          <a class="nav-link" href=""><strong>Profile</strong></a>
+          <a class="nav-link" ><%= button_to "Profile" ,"/users/#{current_user.id}", method: :get %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><strong>Notifications</strong></a>
+          <a class="nav-link" ><%= button_to "Notifications" ,"/users/#{current_user.id}", method: :get %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#"><strong>Updates</strong></a>
+          <a class="nav-link" ><%= button_to "P" ,"/users/#{current_user.id}", method: :get %></a>
         </li>
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Categories</strong><span class="caret"></span></a>

@@ -29,9 +29,7 @@
   </div>
 
   <div class="col-md-8">
-  <% if current_user.id == @job.user_id %>
-  <%= button_to "Delete", "/jobs/#{@job.id}", method: :delete %>
-  <% end %>
+  
       <h4><%= @job.title %></h4>
       <p><strong>Category: </strong><%= @job.category.name %></p>
       <p><%= @job.description %></p>
@@ -42,7 +40,10 @@
       <h5> How to Apply </h5>
       <p><%= raw(@job.apply_info) %></p>
       <p><strong>Deadline</strong>: <%= @job.deadline %></p>
-      <%= button_to "Apply Now", "/applications/new", method: :get  %>
+     <%= form_tag "/applications/new?job_id=#{@job.id} ", method: :get do %>
+       <input type="hidden" name="job_id" class="form_control" value="<%= @job.id %>">
+      <%= button_to "Apply Now" %>
+      <% end %>
   </div>
   </div>
 </div>

@@ -1,1 +1,27 @@
-<h1> Hello Rwanda </h1>
+<div class="container-fluid">
+<div class="row">
+
+  <div class="col-md-2">
+    <img src="<%= image_url('getjoblogo.png')%>">
+    </div>
+
+    <div class="flipkart-navbar-search smallsearch col-md-8 col-xs-1">
+      <%= form_tag "/jobs/search", method: :post do %>
+        <div class="form">
+          <label for="focusedInput"></label>
+          <input type="text" class="focusedInput" placeholder="Search a job......" name="search_input">
+          <button type="submit" class="btn btn-primary active">Submit</button>
+        </div>
+      <% end %>
+    </div>
+ 
+
+
+  <div class="col-md-8">
+    <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>
+    <p><strong>Email: </strong><%= current_user.email %></p>
+    
+
+  </div>
+</div>
+

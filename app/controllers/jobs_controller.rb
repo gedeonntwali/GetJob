@@ -25,7 +25,7 @@ before_action :job_owner, only: [:edit, :update, :destroy]
   end
 
   def create
-    @job = Job.new({user_id: params[:user_id], title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline], company_id: params[:company_id]})
+    @job = Job.new({user_id: params[:user_id], title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline], company_id: params[:company_id], email: params[:email]})
     if @job.save
       flash[:success] = "Job Post Created"
       redirect_to "/jobs/#{@job.id}"

@@ -1,4 +1,4 @@
-<% if current_user.id == @company.user_id %>
+<% if current_user%>
 <%= button_to "Add New Job Post", "/jobs/new", method: :get %>
 <% end %>
 

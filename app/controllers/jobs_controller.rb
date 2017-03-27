@@ -1,5 +1,12 @@
 class JobsController < ApplicationController
+before_action :job_owner, only: [:edit, :update, :destroy]
 
+  def job_owner
+     unless @job.user_id == current_user.id
+      flash[:notice] = 'Access denied as you are not owner of this Job'
+      redirect_to jobs_path
+     end
+  end
   def index
    @jobs = Job.all
    @categories = Category.all
@@ -18,11 +25,12 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new({title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline]})
+    @job = Job.new({user_id: params[:user_id], title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline], company_id: params[:company_id]})
     if @job.save
       flash[:success] = "Job Post Created"
       redirect_to "/jobs/#{@job.id}"
     else
+      @categories = Category.all
       flash[:warning] = "Job Post NOT Created"
       render :new
     end

@@ -5,6 +5,7 @@ class ApplicationsController < ApplicationController
   end
 
   def new
+    @jobs = Job.all
   end
 
   def create

@@ -7,14 +7,20 @@
   </div>
 
   <div class="col-md-8">
-  <% if current_user %>
-  <%= button_to "Delete", "/jobs/#{@job.id}", method: :delete %>
-  <% end %>
+  
   <h4> All Applications </h4>
   <% @applications.each do |application| %>
-    <p><strong>First Name</strong><%= application.first_name %></p>
-    <p><strong>First Name</strong><%= application.last_name %></p>
+    <p><strong>First Name</strong>  <%= application.first_name %></p>
+    <p><strong>Last Name</strong>  <%= application.last_name %></p>
+    <p><strong>Gender</strong>  <%= application.sex %></p>
+    <p><strong>Nationality</strong>  <%= application.nationality %></p>
+    <p><strong>Phone Number</strong>  <%= application.phone_number %></p>
+    <p><strong>Email</strong>  <%= application.email %></p>
     <p><%= link_to "Download Resume", application.resume_url %></p>
+    <p><strong>Cover Letter</strong>  <%= raw(application.cover_letter) %></p>
+    <p><strong>Highest Degree</strong>  <%= application.highest_degree %></p>
+    <p><strong>Experience</strong>  <%= application.experience %></p>
+    
   <%end%>
 
       

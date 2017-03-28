@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @companies = Company.all
+    @jobs = Job.all
   end
   
   def new
@@ -11,6 +13,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @company = Company.find_by(id: params[:id])
+    @job = Job.find_by(id: params[:id])
   end
 
   def create
@@ -30,6 +34,12 @@ class UsersController < ApplicationController
       flash[:warning] = 'Wrong email or password'
       redirect_to '/signup'
     end
+  end
+
+  def notification
+    @users = User.all
+    @applications = Application.all
+    @jobs = Job.all
   end
 end
 

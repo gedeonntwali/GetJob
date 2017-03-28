@@ -1,50 +1,54 @@
 <div class="container-fluid" id="beside_nav">
 <div class="row">
 
-    <div class="col-md-2">
-    <nav class="nav-sidebar">
-      <ul class="nav flex-column">
-      <% if current_user %>
-        <li class="nav-item">
-          <a class="nav-link" href=""><strong>Profile</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><strong>Notifications</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#"><strong>Updates</strong></a>
-        </li>
-        <div class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Categories</strong><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <% Category.all.each do |category| %>
-                  <li><a href="/jobs/?category=<%= category.name %>"><%= category.name.capitalize %></a></li>
-                <% end %>
-              </ul>
-          </div>
-        <% end %>
-      </ul>
-    </nav>
+  <div class="col-md-2">
+  <% if current_user  && current_user.id == @job.user_id  %>
+  <p><%= button_to "Edit Job Post", "/jobs/#{@job.id}/edit", method: :get %></p>
+  <p><%= button_to "Delete Job Post", "/jobs/#{@job.id}", method: :delete %></p>  
+  <% end %>
   </div>
 
   <div class="col-md-8">
   
+      
+
       <h4><%= @job.title %></h4>
+      <p><strong><%=@job.company_name %> Company</strong></p>
       <p><strong>Category: </strong><%= @job.category.name %></p>
       <p><%= @job.description %></p>
-      <h5> Responsibility</h5>
+      <h4> Responsibility</h4>
       <%= raw(@job.job_responsability) %>
-      <h5> Requirements</h5>
+      <h4> Requirements</h4>
       <%= raw(@job.job_requirement) %>
-      <h5> How to Apply </h5>
+      <h4> How to Apply </h4>
       <p><%= raw(@job.apply_info) %></p>
       <p><strong>Deadline</strong>: <%= @job.deadline %></p>
      <%= form_tag "/applications/new?job_id=#{@job.id} ", method: :get do %>
        <input type="hidden" name="job_id" class="form_control" value="<%= @job.id %>">
       <%= button_to "Apply Now" %>
       <% end %>
-  </div>
+
+    <% if current_user  && current_user.id == @job.user_id  %>       
+      <h3> Applications </h3>
+
+      <% @job.applications.each do |application| %>
+        <p><strong><%= application.first_name %> <%= application.last_name %>  Application</strong></p> 
+        <p>First Name: <%= application.first_name %></p>
+        <p>Last Name: <%= application.last_name %></p>
+        <p>Gender: <%= application.sex %></p>
+        <p>Nationality: <%= application.nationality %></p>
+        <p>Phone Number: <%= application.phone_number %></p>
+        <p>Email: <%= application.email %></p>
+        <p><%= link_to "Download Resume", application.resume_url %></p>
+        <p>Cover Letter: <%= raw(application.cover_letter) %></p>
+        <p>Highest Degree: <%= application.highest_degree %></p>
+        <p>Experience: <%= application.experience %></p>       
+      <% end %>
+    <% end %>
+
+
+ 
   </div>
 </div>
+
 

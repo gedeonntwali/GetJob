@@ -1,26 +1,21 @@
-<% if current_user%>
-<%= button_to "Add New Job Post", "/jobs/new", method: :get %>
-<% end %>
 
 <div class="container-fluid">
 <div class="row">
 
   <div class="col-md-2">
+  <% if current_user  && current_user.id == @company.user_id  %>
+  <p><%= button_to "Edit Company Info", "/companies/#{@company.id}/edit", method: :get %></p>
+  <p><%= button_to "Delete Company", "/companies/#{@company.id}", method: :delete %></p>  
+  <% end %>
   </div>
 
   <div class="col-md-8">
-    <h5><%= @company.name %> Company Profile </h5>
+    <h4><%= @company.name %> Company Profile </h4>
     <p><strong>Address: </strong><%= @company.address %></p>
     <p><strong>Description: </strong><%= @company.description %></p>
     <p><strong>Email: </strong><%= @company.email %></p>
     <p><strong>Website</strong><%= raw(@company.website)%></p> 
 
-    <h5><%= @company.name %> Job Posts</h5>
-    
-
   </div>
 </div>
-<% if current_user.id == @company.user_id  %>
-<%= button_to "Delete", "/companies/#{@company.id}", method: :delete %>
-<% end %>
 </div>

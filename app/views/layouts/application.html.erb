@@ -7,6 +7,7 @@
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,6 +80,11 @@
                             <a class="page-scroll" href="/jobs">Home</a>
                         </li>
                         <li>
+                          <% if current_user %>
+                        <a <%= link_to "Profile" ,"/users/#{current_user.id}", method: :get %>></a>
+                          <% end %>
+                          </li>
+                        <li>
                             <a class="page-scroll" href="/companies">Campanies</a>
                         </li>
                         <li>
@@ -102,6 +108,7 @@
                             <% end %>
                           </ul>
                          </li>
+                          
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -121,7 +128,7 @@
                         
                     </div>
                     <div class="col-md-4">
-                    <span class="copyright"><strong>Copyright &copy; GetJob Rwanda</strong> </span>
+                    <p class="copyright"><strong>Copyright &copy; GetJob Rwanda</strong> </p>
                     </div>
                     <div class="col-md-4">
                     <strong><%= Time.now %></strong>

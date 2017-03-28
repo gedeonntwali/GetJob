@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
-before_action :job_owner, only: [:edit, :update, :destroy]
+
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def job_owner
      unless @job.user_id == current_user.id
@@ -10,22 +11,23 @@ before_action :job_owner, only: [:edit, :update, :destroy]
   def index
    @jobs = Job.all
    @categories = Category.all
-   @companies = Company.all
+   @applications = Application.all
    render "index.html.erb"
   end
 
   def show
     @job = Job.find_by(id: params[:id])
+    @application = Application.find_by(id: params[:id])
   end
 
   def new
     @job = Job.new
     @categories = Category.all
-    @companies = Company.all
+    
   end
 
   def create
-    @job = Job.new({user_id: params[:user_id], title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline], company_id: params[:company_id], email: params[:email]})
+    @job = Job.new({user_id: params[:user_id], title: params[:title], category_id: params[:category_id], description: params[:description], job_responsability: params[:job_responsability], job_requirement: params[:job_requirement], apply_info: params[:apply_info], deadline: params[:deadline], company_name: params[:company_name], email: params[:email]})
     if @job.save
       flash[:success] = "Job Post Created"
       redirect_to "/jobs/#{@job.id}"
@@ -49,6 +51,7 @@ before_action :job_owner, only: [:edit, :update, :destroy]
     apply_info = params[:apply_info]
     job.deadline = params[:deadline]
     category_id = params[:category_id]
+    company_name = params[:company_name]
     job.save
     flash[:success] = "Job Updated"
     redirect_to "/jobs/#{job.id}"

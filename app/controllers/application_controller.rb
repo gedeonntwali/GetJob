@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     flash.now[:danger] = "Access Accepted"
-    redirect_to "/companies" unless current_user
+    redirect_to "/jobs" unless current_user
   end
 
   def authenticate_admin!

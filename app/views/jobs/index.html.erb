@@ -4,7 +4,7 @@
     <img src="<%= image_url('getjoblogo.png')%>">
     </div>
 
-    <div class="flipkart-navbar-search smallsearch col-md-8 col-xs-1">
+    <div class="col-md-8">
       <%= form_tag "/jobs/search", method: :post do %>
         <div class="form">
           <label for="focusedInput"></label>
@@ -19,41 +19,16 @@
 <div class="container-fluid" id="beside_nav">
 <div class="row">
 
-    <div class="col-md-2">
-    <nav class="nav-sidebar">
-      <ul class="nav flex-column">
-      <% if current_user %>
-        <li class="nav-item">
-          <a class="nav-link" ><%= button_to "Profile" ,"/users/#{current_user.id}", method: :get %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" ><%= button_to "Notifications" ,"/users/#{current_user.id}", method: :get %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" ><%= button_to "P" ,"/users/#{current_user.id}", method: :get %></a>
-        </li>
-        <div class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Categories</strong><span class="caret"></span></a>
-
-              <ul class="dropdown-menu">
-                <li role="separator" class="divider"></li>
-                <% Category.all.each do |category| %>
-                  <li><a href="/jobs/?category=<%= category.name %>"><%= category.name.capitalize %></a></li>
-                <% end %>
-              </ul>
-          </div>
-        <% end %>
-      </ul>
-    </nav>
+  <div class="col-md-2">
   </div>
 
 
     <div class="col-md-8">
       <% @jobs.each do |job| %>      
             <div class="jumbotron">
-              <h4 class="title"><%= link_to job.title, "/jobs/#{job.id}" %></h4>
-              <p style="font-size: 15px;""><strong>Apply before : </strong><%= job.deadline %></p>
-              <p style="font-size: 15px;color:black;"><%= job.description %>
+              <h3 class="title"><%= link_to job.title, "/jobs/#{job.id}" %></h3>
+              <p style="font-size: 17px;"><strong>Apply before : </strong><%= job.deadline %></p>
+              <p style="font-size: 17px;color:black;""><%= job.description %>
               </p>
             </div>
         <% end %>

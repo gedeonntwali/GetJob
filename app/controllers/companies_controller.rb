@@ -28,7 +28,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
   def update
     company = Company.find_by(id: params[:id])
     company.name = params[:name]
-    description = params[:description]
+    company.description = params[:description]
     company.address = params[:address]
     company.email = params[:email]
     website = params[:website]

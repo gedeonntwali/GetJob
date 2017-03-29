@@ -8,9 +8,7 @@
   <% end %>
   </div>
 
-  <div class="col-md-8">
-  
-      
+  <div class="col-md-8">      
 
       <h4><%= @job.title %></h4>
       <p><strong><%=@job.company_name %> Company</strong></p>
@@ -28,27 +26,44 @@
       <%= button_to "Apply Now" %>
       <% end %>
 
-    <% if current_user  && current_user.id == @job.user_id  %>       
       <h3> Applications </h3>
+  </div>
+</div>
+</div>
 
-      <% @job.applications.each do |application| %>
-        <p><strong><%= application.first_name %> <%= application.last_name %>  Application</strong></p> 
-        <p>First Name: <%= application.first_name %></p>
-        <p>Last Name: <%= application.last_name %></p>
-        <p>Gender: <%= application.sex %></p>
-        <p>Nationality: <%= application.nationality %></p>
-        <p>Phone Number: <%= application.phone_number %></p>
-        <p>Email: <%= application.email %></p>
-        <p><%= link_to "Download Resume", application.resume_url %></p>
-        <p>Cover Letter: <%= raw(application.cover_letter) %></p>
-        <p>Highest Degree: <%= application.highest_degree %></p>
-        <p>Experience: <%= application.experience %></p>       
-      <% end %>
-    <% end %>
+<div class="container-fluid" id="beside_nav">
+  <div class="row">
+    <div class = "col-md-12">
+      <% if current_user  && current_user.id == @job.user_id  %>       
+        
+        <% @job.applications.each_slice(2) do |two_applications| %>
+            <div class="row">
+              <% two_applications.each do |application| %>
+                <div class="col-md-6">
+                  <div style="font-size:15px;" id="appjumbotron">
+                  <p><strong><%= application.first_name %> <%= application.last_name %>  Application</strong></p> 
+                  <p>First Name: <%= application.first_name %></p>
+                  <p>Last Name: <%= application.last_name %></p>
+                  <p>Gender: <%= application.sex %></p>
+                  <p>Nationality: <%= application.nationality %></p>
+                  <p>Phone Number: <%= application.phone_number %></p>
+                  <p>Email: <%= application.email %></p>
+                  <p><%= link_to "Download Resume", application.resume_url %></p>
+                  <p><strong>Cover Letter</strong> <%= raw(application.cover_letter) %></p>
+                  <p>Highest Degree: <%= application.highest_degree %></p>
+                  <p>Experience: <%= application.experience %></p>
+                  </div>
+                </div>
+              <% end %>
+             </div>
+          <% end %>              
+     <% end %>
+  </div>
+  </div>
+  </div>
 
 
  
-  </div>
-</div>
+  
 
 

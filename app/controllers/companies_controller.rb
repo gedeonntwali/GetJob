@@ -31,7 +31,7 @@ before_action :authenticate_user!, only: [:edit, :update, :destroy]
     company.description = params[:description]
     company.address = params[:address]
     company.email = params[:email]
-    website = params[:website]
+    company.website = params[:website]
     company.save
     flash[:success] = "Company Updated"
     redirect_to "/companies/#{company.id}"

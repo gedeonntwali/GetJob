@@ -19,7 +19,7 @@
 
             <div class="form-group">
               <label for="focusedInput">Company Description</label>
-              <textarea class="form-control" name="description" id="focusedInput" rows="3"></textarea>
+              <textarea class="form-control" name="description" id="focusedInput" rows="3"><%= @company.description %></textarea>
             </div>
 
             <div class="form-group">
@@ -30,7 +30,7 @@
 
             <div class="form-group">
             <label>Official Website</label>
-            <textarea name="website" rows="2" value="<%= @company.website %>"></textarea>
+            <textarea name="website" rows="2"><%= raw(@company.website) %></textarea>
               <script>
                   CKEDITOR.replace( 'website' );
               </script>

@@ -8,6 +8,7 @@ class ApplyMailer < ApplicationMailer
   def applicant_confirmation(application)
     @job = application.job
     @application = application.id
+    @applications = Application.all
 
     mail to: @job.email, subject: "Application Information"
   end

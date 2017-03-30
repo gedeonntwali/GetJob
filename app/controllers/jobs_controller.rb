@@ -45,13 +45,13 @@ class JobsController < ApplicationController
   def update
     job = Job.find_by(id: params[:id])
     job.title = params[:title]
-    description = params[:description]
-    job_responsability = params[:job_responsability]
-    job_requirement = params[:job_requirement]
-    apply_info = params[:apply_info]
+    job.description = params[:description]
+    job.job_responsability = params[:job_responsability]
+    job.job_requirement = params[:job_requirement]
+    job.apply_info = params[:apply_info]
     job.deadline = params[:deadline]
-    category_id = params[:category_id]
-    company_name = params[:company_name]
+    job.category_id = params[:category_id]
+    job.company_name = params[:company_name]
     job.save
     flash[:success] = "Job Updated"
     redirect_to "/jobs/#{job.id}"

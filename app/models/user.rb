@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   has_many :companies
 
+  validates :first_name, presence: {message:"You must enter your first name"}
+  validates :last_name, presence: {message:"You must enter your last name"}
+
+
 end

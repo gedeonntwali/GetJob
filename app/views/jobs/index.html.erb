@@ -26,9 +26,9 @@
     <div class="col-md-8">
       <% @jobs.each do |job| %>      
             <div class="jumbotron">
-              <h3 class="title"><%= link_to job.title, "/jobs/#{job.id}" %></h3>
+              <h3><%= link_to job.title, "/jobs/#{job.id}" %></h3>
               <p style="font-size: 17px;"><strong><%= job.company_name %></strong></p>
-              <p style="font-size: 17px;color:black;""><%= job.description %>
+              <p style="font-size: 17px;color:black;""><%= truncate job.description, length: 300 %> | <%= link_to 'Read More', "/jobs/#{job.id}" %>
               <p style="font-size: 17px;"><strong>Apply before : </strong><%= job.deadline %></p>
               </p>
             </div>

@@ -13,7 +13,7 @@
               <div class="jumbotron">
               <h4><%= link_to company.name, "/companies/#{company.id}" %></h4>
               <p><strong>Address</strong>: <%= company.address %></p>
-              <p style="font-size: 17px;"><strong>Description</strong>: <%= company.description %></p>
+              <p style="font-size: 17px;"><strong>Description</strong>: <%= truncate company.description, length: 250 %> | <%= link_to 'Read More', "/companies/#{company.id}" %></p>
               </div>
             </div>
           <% end %>

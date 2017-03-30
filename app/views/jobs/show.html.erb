@@ -26,7 +26,7 @@
       <%= button_to "Apply Now" %>
       <% end %>
 
-      <h3> Applications </h3>
+      
   </div>
 </div>
 </div>
@@ -35,13 +35,13 @@
   <div class="row">
     <div class = "col-md-12">
       <% if current_user  && current_user.id == @job.user_id  %>       
-        
+        <h3> Applications </h3>
         <% @job.applications.each_slice(2) do |two_applications| %>
             <div class="row">
               <% two_applications.each do |application| %>
                 <div class="col-md-6">
                   <div style="font-size:15px;" id="appjumbotron">
-                  <p><strong><%= application.first_name %> <%= application.last_name %>  Application</strong></p> 
+                  <h4><%= application.first_name %> <%= application.last_name %> Application</h4> 
                   <p>First Name: <%= application.first_name %></p>
                   <p>Last Name: <%= application.last_name %></p>
                   <p>Gender: <%= application.sex %></p>

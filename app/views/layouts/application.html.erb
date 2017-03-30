@@ -78,8 +78,9 @@
                         </li>
                         <li>
                           <% if current_user %>
-                        <a <%= link_to "Profile" ,"/users/#{current_user.id}", method: :get %>></a>
-                          <% end %>
+                        <a <%= link_to "Profile" ,"/users/#{current_user.id}", method: :get %></a>
+                        <% end %>
+                          
                           </li>
                         <li>
                             <a class="page-scroll" href="/companies">Campanies</a>

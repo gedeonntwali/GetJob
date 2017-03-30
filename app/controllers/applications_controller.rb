@@ -5,6 +5,10 @@ class ApplicationsController < ApplicationController
     @jobs = Job.all
   end
 
+  def show
+    @application = Application.find_by(id: params[:id])
+  end
+
   def new
     @application = Application.new
     @jobs = Job.all
@@ -31,13 +35,15 @@ class ApplicationsController < ApplicationController
     if @application.save
       ApplyMailer.applicant_confirmation(@application).deliver_now
     end
-    redirect_to "/applications"
+    redirect_to "/applications/#{@application.id}"
 
   end
 
   def download
     send_file '@application.resume.url', :type=>"application/pdf", :x_sendfile=>true
   end
+
+  
 
 
 end

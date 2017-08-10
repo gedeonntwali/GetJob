@@ -1,5 +1,5 @@
 .background {
-  background-image: url('wallpaper.png')
+  background-image: image-url("<%= asset_path('wallpaper.png') %>")
 }
 
 /*!

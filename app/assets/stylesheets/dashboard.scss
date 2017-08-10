@@ -1,4 +1,5 @@
- 
+.background {
+  background-image: image-url("<%= asset_path('wallpaper.png') %>"); 
 
 /*!
  * Start Bootstrap - Agency v3.3.7+1 (http://startbootstrap.com/template-overviews/agency)

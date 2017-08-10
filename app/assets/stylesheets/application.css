@@ -33,9 +33,7 @@
   position: absolute;
   top: 45px;
 }*/
-.background {
-  background-image: image-url("<%= asset_path('wallpaper.png') %>");
-}
+
 #mainNav {
   height:80px; 
   position: top;
